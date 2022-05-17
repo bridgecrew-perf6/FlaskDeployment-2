@@ -31,3 +31,26 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSServicePolicy" {
   role       = aws_iam_role.eks_cluster.name
 }
 
+
+resource "aws_default_vpc" "default" {
+  tags = {
+    Name = "Default VPC"
+  }
+}
+
+
+resource "aws_eks_cluster" "aws_eks" {
+  name     = "Deployment_Cluster"
+  role_arn = aws_iam_role.eks_cluster.arn
+
+  vpc_config {
+    subnet_ids              = ["subnet-0691fe57c087e2991", "subnet-0e958c727c69097a4"]
+    endpoint_private_access = true
+    endpoint_public_access  = true
+  }
+
+  tags = {
+    Name = "Deployment_Cluster"
+  }
+}
+

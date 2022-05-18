@@ -1,6 +1,6 @@
 locals {
-  subnet1  = "subnet-0691fe57c087e2991"
-  subnet2  = "subnet-0e958c727c69097a4"
+  subnet1  = "subnet-094c45ac71ae50dcb"
+  subnet2  = "subnet-00f6fffe8a018ddcb"
 }
 
 
@@ -52,7 +52,7 @@ resource "aws_eks_cluster" "aws_eks" {
   role_arn = aws_iam_role.eks_cluster.arn
 
   vpc_config {
-    subnet_ids              = [local.subnet1]
+    subnet_ids              = [local.subnet1, local.subnet2]
     endpoint_private_access = true
     endpoint_public_access  = true
   }
@@ -109,7 +109,7 @@ resource "aws_eks_node_group" "node" {
   cluster_name    = aws_eks_cluster.aws_eks.name
   node_group_name = "Node_group"
   node_role_arn   = aws_iam_role.eks_nodes.arn
-  subnet_ids      = [local.subnet1]
+  subnet_ids      = [local.subnet1, local.subnet2]
 
   scaling_config {
     desired_size = 2

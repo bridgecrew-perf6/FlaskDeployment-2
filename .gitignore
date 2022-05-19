@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Terraform local files
+IaC/.terraform.lock.hcl
+IaC/.terraform/
+IaC/terraform.tfstate
+IaC/terraform.tfstate.backup

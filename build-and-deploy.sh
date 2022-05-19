@@ -6,3 +6,7 @@ docker-compose build
 echo "push to Dockerhub"
 docker-compose push
 
+kubectl apply -f ./k8s/backend.yaml
+kubectl apply -f ./k8s/frontend.yaml
+
+

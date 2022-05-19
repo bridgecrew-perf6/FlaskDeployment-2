@@ -48,7 +48,7 @@ resource "aws_default_vpc" "default" {
 
 
 resource "aws_eks_cluster" "aws_eks" {
-  name     = "Deployment_Cluster"
+  name     = "flask_deployment"
   role_arn = aws_iam_role.eks_cluster.arn
 
   vpc_config {
@@ -66,7 +66,7 @@ resource "aws_eks_cluster" "aws_eks" {
 
 
 resource "aws_iam_role" "eks_nodes" {
-  name = "final_project_node"
+  name = "flask_deployment_node"
 
   assume_role_policy = <<POLICY
 {

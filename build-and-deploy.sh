@@ -11,3 +11,5 @@ aws eks --region eu-west-2 update-kubeconfig --name flask_deployment
 
 kubectl apply -f ./k8s/backend.yaml
 kubectl apply -f ./k8s/frontend.yaml
+
+kubectl get services

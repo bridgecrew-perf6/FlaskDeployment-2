@@ -10,3 +10,7 @@ kubectl apply -f ./k8s/backend.yaml
 kubectl apply -f ./k8s/frontend.yaml
 
 
+kubectl apply -f ./k8s/NginXService.yaml
+
+kubectl apply -f ./k8s/nginx/configmap.yaml
+kubectl apply -f ./k8s/nginx/nginx-depl.yaml
